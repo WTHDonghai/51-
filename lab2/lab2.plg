@@ -1,0 +1,68 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+F:\pro51\lab2\lab2.uvproj
+Project File Date:  08/12/2020
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(30): warning C206: 'display_all_digital': missing function-prototype
+MAIN.C(30): error C267: 'display_all_digital': requires ANSI-style prototype
+MAIN.C(51): error C231: 'display_all_digital': redefinition
+MAIN.C(73): error C231: 'display_all_digital': redefinition
+Target not created
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(32): error C267: 'display_all_digital': requires ANSI-style prototype
+Target not created
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(32): error C207: 'display_all_digital': declared with 'void' parameter list
+Target not created
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(32): error C267: 'display_all_digital': requires ANSI-style prototype
+Target not created
+Build target 'Target 1'
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DISPLAY_DIGITAL?MAIN
+Program Size: data=11.0 xdata=0 code=150
+creating hex file from "lab2"...
+"lab2" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DISPLAY_DIGITAL?MAIN
+Program Size: data=11.0 xdata=0 code=150
+creating hex file from "lab2"...
+"lab2" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DISPLAY_DIGITAL?MAIN
+Program Size: data=11.0 xdata=0 code=150
+creating hex file from "lab2"...
+"lab2" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DISPLAY_DIGITAL?MAIN
+Program Size: data=11.0 xdata=0 code=150
+creating hex file from "lab2"...
+"lab2" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DISPLAY_ALL_DIGITAL?MAIN
+Program Size: data=11.0 xdata=0 code=154
+creating hex file from "lab2"...
+"lab2" - 0 Error(s), 1 Warning(s).

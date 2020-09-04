@@ -1,0 +1,4 @@
+"i2c.obj",
+"main.obj" 
+TO "lab7" 
+RAMSIZE(256) 

@@ -1,0 +1,316 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        09/04/2020  17:31:57  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+S:\KEIL\C51\BIN\BL51.EXE STARTUP.obj, .\main.obj, .\HC138_drive.obj, .\HC245_drive.obj, .\seg_ser.obj TO 全芯片驱动 RAMS
+>> IZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  STARTUP.obj (?C_STARTUP)
+  .\main.obj (MAIN)
+  .\HC138_drive.obj (HC138_DRIVE)
+  .\HC245_drive.obj (HC245_DRIVE)
+  .\seg_ser.obj (SEG_SER)
+  S:\KEIL\C51\LIB\C51S.LIB (?C_INIT)
+  S:\KEIL\C51\LIB\C51S.LIB (?C?UIDIV)
+
+
+LINK MAP OF MODULE:  全芯片驱动 (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0009H     UNIT         ?DT?SEG_SER
+            DATA    0011H     0007H     UNIT         ?DT?MAIN
+            DATA    0018H     0001H     UNIT         _DATA_GROUP_
+            IDATA   0019H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     0008H                  *** GAP ***
+            CODE    000BH     0003H     ABSOLUTE     
+                    000EH     07F2H                  *** GAP ***
+            CODE    0800H     008CH     UNIT         ?C_C51STARTUP
+            CODE    088CH     0060H     UNIT         ?PR?TIME0?MAIN
+            CODE    08ECH     0055H     UNIT         ?C?LIB_CODE
+            CODE    0941H     0021H     UNIT         ?PR?_CHIP_SELECT?HC138_DRIVE
+            CODE    0962H     0021H     UNIT         ?PR?SEG_DISPALY?SEG_SER
+            CODE    0983H     0020H     UNIT         ?PR?_INIT_DEC_DATA?SEG_SER
+            CODE    09A3H     0015H     UNIT         ?C_INITSEG
+            CODE    09B8H     0013H     UNIT         ?PR?SEG_DATA_ALLOW?MAIN
+            CODE    09CBH     0012H     UNIT         ?CO?HC245_DRIVE
+            CODE    09DDH     0010H     UNIT         ?PR?INIT_INTERRUPT?MAIN
+            CODE    09EDH     000BH     UNIT         ?PR?MAIN?MAIN
+            CODE    09F8H     0008H     UNIT         ?PR?_SEGMENT_SELECT?HC245_DRIVE
+
+
+
+OVERLAY MAP OF MODULE:   全芯片驱动 (?C_STARTUP)
+
+
+SEGMENT                                   DATA_GROUP 
+  +--> CALLED SEGMENT                   START    LENGTH
+-------------------------------------------------------
+?C_C51STARTUP                           -----    -----
+BL51 BANKED LINKER/LOCATER V6.22                                                      09/04/2020  17:31:57  PAGE 2
+
+
+  +--> ?PR?MAIN?MAIN
+  +--> ?C_INITSEG
+
+?PR?MAIN?MAIN                           -----    -----
+  +--> ?PR?INIT_INTERRUPT?MAIN
+  +--> ?PR?SEG_DATA_ALLOW?MAIN
+  +--> ?PR?SEG_DISPALY?SEG_SER
+
+?PR?SEG_DATA_ALLOW?MAIN                 -----    -----
+  +--> ?PR?_INIT_DEC_DATA?SEG_SER
+
+?PR?_INIT_DEC_DATA?SEG_SER              0018H    0001H
+
+?PR?SEG_DISPALY?SEG_SER                 0018H    0001H
+  +--> ?PR?_CHIP_SELECT?HC138_DRIVE
+  +--> ?PR?_SEGMENT_SELECT?HC245_DRIVE
+
+?PR?_SEGMENT_SELECT?HC245_DRIVE         -----    -----
+  +--> ?CO?HC245_DRIVE
+
+
+
+SYMBOL TABLE OF MODULE:  全芯片驱动 (?C_STARTUP)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ?C_STARTUP
+  C:0800H         SEGMENT       ?C_C51STARTUP
+  I:0019H         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:0803H         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:0800H         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:0800H         LINE#         133
+  C:0802H         LINE#         134
+  C:0803H         LINE#         135
+  C:0804H         LINE#         136
+BL51 BANKED LINKER/LOCATER V6.22                                                      09/04/2020  17:31:57  PAGE 3
+
+
+  C:0806H         LINE#         185
+  C:0809H         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00B0H         PUBLIC        P3
+  B:00A8H.7       PUBLIC        EA
+  C:09DDH         PUBLIC        init_interrupt
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  C:09EDH         PUBLIC        main
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  D:0088H         PUBLIC        TCON
+  C:09B8H         PUBLIC        seg_data_allow
+  D:0011H         PUBLIC        hour
+  D:0012H         PUBLIC        min
+  B:00A8H.1       PUBLIC        ET0
+  D:008CH         PUBLIC        TH0
+  D:008AH         PUBLIC        TL0
+  B:0088H.4       PUBLIC        TR0
+  D:0013H         PUBLIC        se
+  D:0014H         PUBLIC        ms
+  C:088CH         PUBLIC        time0
+  D:00C8H         PUBLIC        T2CON
+  D:0016H         PUBLIC        segNum
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          MAIN
+  C:09EDH         LINE#         13
+  C:09EDH         LINE#         14
+  C:09EDH         LINE#         15
+  C:09F0H         LINE#         16
+  C:09F0H         LINE#         17
+  C:09F0H         LINE#         18
+  C:09F3H         LINE#         19
+  C:09F6H         LINE#         20
+  -------         ENDPROC       MAIN
+  -------         PROC          SEG_DATA_ALLOW
+  C:09B8H         LINE#         26
+  C:09B8H         LINE#         27
+  C:09B8H         LINE#         28
+  C:09C5H         LINE#         29
+  C:09CAH         LINE#         30
+  -------         ENDPROC       SEG_DATA_ALLOW
+  -------         PROC          INIT_INTERRUPT
+  C:09DDH         LINE#         47
+  C:09DDH         LINE#         48
+  C:09DDH         LINE#         49
+  C:09DFH         LINE#         50
+  C:09E1H         LINE#         53
+  C:09E4H         LINE#         59
+  C:09E7H         LINE#         60
+  C:09EAH         LINE#         62
+  C:09ECH         LINE#         63
+  -------         ENDPROC       INIT_INTERRUPT
+BL51 BANKED LINKER/LOCATER V6.22                                                      09/04/2020  17:31:57  PAGE 4
+
+
+  -------         PROC          TIME0
+  C:088CH         LINE#         68
+  C:089FH         LINE#         70
+  C:08A2H         LINE#         71
+  C:08A5H         LINE#         74
+  C:08BBH         LINE#         75
+  C:08BBH         LINE#         76
+  C:08BFH         LINE#         78
+  C:08CBH         LINE#         79
+  C:08CBH         LINE#         80
+  C:08CDH         LINE#         81
+  C:08D9H         LINE#         82
+  C:08D9H         LINE#         83
+  C:08DBH         LINE#         84
+  C:08DBH         LINE#         85
+  C:08DBH         LINE#         86
+  C:08DBH         LINE#         87
+  -------         ENDPROC       TIME0
+  -------         ENDMOD        MAIN
+
+  -------         MODULE        HC138_DRIVE
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  C:0941H         PUBLIC        _chip_select
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  B:00A0H.2       PUBLIC        LCA
+  B:00A0H.3       PUBLIC        LCB
+  B:00A0H.4       PUBLIC        LCC
+  D:00C8H         PUBLIC        T2CON
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          _CHIP_SELECT
+  D:0006H         SYMBOL        idx
+  C:0941H         LINE#         14
+  C:0943H         LINE#         15
+  C:0943H         LINE#         17
+  C:0947H         LINE#         18
+  C:0953H         LINE#         19
+  C:0961H         LINE#         20
+  -------         ENDPROC       _CHIP_SELECT
+  -------         ENDMOD        HC138_DRIVE
+
+  -------         MODULE        HC245_DRIVE
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00B0H         PUBLIC        P3
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  C:09CBH         PUBLIC        SEG_NUM_CODE
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  C:09F8H         PUBLIC        _segment_select
+BL51 BANKED LINKER/LOCATER V6.22                                                      09/04/2020  17:31:57  PAGE 5
+
+
+  D:00C8H         PUBLIC        T2CON
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          _SEGMENT_SELECT
+  D:0007H         SYMBOL        num
+  C:09F8H         LINE#         17
+  C:09F8H         LINE#         18
+  C:09F8H         LINE#         19
+  C:09FFH         LINE#         20
+  -------         ENDPROC       _SEGMENT_SELECT
+  -------         ENDMOD        HC245_DRIVE
+
+  -------         MODULE        SEG_SER
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00B0H         PUBLIC        P3
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  D:0008H         PUBLIC        seg_data_buffer
+  C:0962H         PUBLIC        seg_dispaly
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  C:0983H         PUBLIC        _init_dec_data
+  D:0010H         PUBLIC        chip_idx
+  D:00C8H         PUBLIC        T2CON
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          _INIT_DEC_DATA
+  D:0007H         SYMBOL        num
+  -------         DO            
+  D:0018H         SYMBOL        tmp
+  -------         ENDDO         
+  C:0983H         LINE#         13
+  C:0983H         LINE#         14
+  C:0983H         LINE#         15
+  C:0986H         LINE#         16
+  C:0989H         LINE#         17
+  C:0989H         LINE#         18
+  C:0990H         LINE#         19
+  C:0996H         LINE#         20
+  C:09A0H         LINE#         21
+  C:09A2H         LINE#         22
+  -------         ENDPROC       _INIT_DEC_DATA
+  -------         PROC          SEG_DISPALY
+  -------         DO            
+  D:0018H         SYMBOL        i
+  -------         ENDDO         
+  C:0962H         LINE#         31
+  C:0962H         LINE#         32
+  C:0962H         LINE#         33
+  C:0965H         LINE#         34
+  C:096CH         LINE#         35
+  C:096CH         LINE#         36
+  C:096FH         LINE#         37
+  C:0974H         LINE#         38
+  C:097EH         LINE#         39
+  C:0982H         LINE#         40
+  -------         ENDPROC       SEG_DISPALY
+BL51 BANKED LINKER/LOCATER V6.22                                                      09/04/2020  17:31:57  PAGE 6
+
+
+  -------         ENDMOD        SEG_SER
+
+  -------         MODULE        ?C?UIDIV
+  C:08ECH         PUBLIC        ?C?UIDIV
+  -------         ENDMOD        ?C?UIDIV
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0130H BYTE (14%) *
+******************************************************************************
+
+Program Size: data=26.0 xdata=0 code=518
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,7 @@
+"STARTUP.obj",
+".\main.obj",
+".\HC138_drive.obj",
+".\HC245_drive.obj",
+".\seg_ser.obj" 
+TO "È«Ð¾Æ¬Çý¶¯" 
+RAMSIZE(256) 

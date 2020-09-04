@@ -1,0 +1,137 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        08/13/2020  12:43:38  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+S:\KEIL\C51\BIN\BL51.EXE main.obj TO lab3 RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  main.obj (MAIN)
+  S:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  S:\KEIL\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  lab3 (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0001H     UNIT         ?DT?MAIN
+            DATA    0009H     0001H     UNIT         _DATA_GROUP_
+            IDATA   000AH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     008CH     UNIT         ?C_C51STARTUP
+            CODE    088CH     0035H     UNIT         ?PR?MAIN?MAIN
+            CODE    08C1H     0014H     UNIT         ?PR?_DISPLAY_DIGITAL?MAIN
+            CODE    08D5H     0010H     UNIT         ?CO?MAIN
+            CODE    08E5H     000BH     UNIT         ?PR?_DELAY?MAIN
+            CODE    08F0H     0004H     UNIT         ?C_INITSEG
+
+
+
+OVERLAY MAP OF MODULE:   lab3 (MAIN)
+
+
+SEGMENT                             DATA_GROUP 
+  +--> CALLED SEGMENT             START    LENGTH
+-------------------------------------------------
+?C_C51STARTUP                     -----    -----
+  +--> ?PR?MAIN?MAIN
+  +--> ?C_INITSEG
+
+?PR?MAIN?MAIN                     0009H    0001H
+  +--> ?PR?_DISPLAY_DIGITAL?MAIN
+  +--> ?PR?_DELAY?MAIN
+
+?PR?_DISPLAY_DIGITAL?MAIN         -----    -----
+  +--> ?CO?MAIN
+
+
+
+SYMBOL TABLE OF MODULE:  lab3 (MAIN)
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      08/13/2020  12:43:38  PAGE 2
+
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  D:00A8H         PUBLIC        IE
+  C:08E5H         PUBLIC        _delay
+  D:0008H         PUBLIC        smgduan_len
+  D:00B8H         PUBLIC        IP
+  C:088CH         PUBLIC        main
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  C:08C1H         PUBLIC        _display_digital
+  D:00C8H         PUBLIC        T2CON
+  C:08D5H         PUBLIC        smgduan
+  D:00D0H         PUBLIC        PSW
+  B:00B0H.1       PUBLIC        key1
+  -------         PROC          MAIN
+  -------         DO            
+  D:0009H         SYMBOL        num
+  -------         ENDDO         
+  C:088CH         LINE#         24
+  C:088CH         LINE#         25
+  C:088CH         LINE#         28
+  C:088FH         LINE#         29
+  C:0895H         LINE#         30
+  C:0895H         LINE#         31
+  C:0895H         LINE#         32
+  C:0898H         LINE#         33
+  C:0898H         LINE#         34
+  C:089FH         LINE#         35
+  C:08A1H         LINE#         36
+  C:08AEH         LINE#         37
+  C:08B5H         LINE#         38
+  C:08B8H         LINE#         39
+  C:08BFH         LINE#         40
+  C:08BFH         LINE#         41
+  -------         ENDPROC       MAIN
+  -------         PROC          _DISPLAY_DIGITAL
+  D:0007H         SYMBOL        n
+  D:0005H         SYMBOL        num
+  -------         DO            
+  D:0007H         SYMBOL        idx
+  -------         ENDDO         
+  C:08C1H         LINE#         50
+  C:08C1H         LINE#         51
+  C:08C1H         LINE#         52
+  C:08CBH         LINE#         53
+  C:08CDH         LINE#         54
+  C:08D4H         LINE#         55
+  -------         ENDPROC       _DISPLAY_DIGITAL
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        us
+BL51 BANKED LINKER/LOCATER V6.22                                                      08/13/2020  12:43:38  PAGE 3
+
+
+  C:08E5H         LINE#         57
+  C:08E5H         LINE#         58
+  C:08E5H         LINE#         59
+  C:08EFH         LINE#         60
+  -------         ENDPROC       _DELAY
+  -------         ENDMOD        MAIN
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0067H BYTE ( 5%) *
+******************************************************************************
+
+Program Size: data=11.0 xdata=0 code=247
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

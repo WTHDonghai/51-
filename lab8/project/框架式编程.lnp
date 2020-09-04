@@ -1,0 +1,5 @@
+"STARTUP.obj",
+".\HC595_Driver.obj",
+".\main.obj" 
+TO "¿ò¼ÜÊ½±à³Ì" 
+RAMSIZE(256) 

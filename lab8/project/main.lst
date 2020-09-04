@@ -1,0 +1,56 @@
+C51 COMPILER V9.01   MAIN                                                                  09/02/2020 15:16:10 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\main.obj
+COMPILER INVOKED BY: S:\Keil\C51\BIN\C51.EXE ..\c_and_h\main.c BROWSE INCDIR(..\c_and_h) DEBUG OBJECTEXTEND PRINT(.\main
+                    -.lst) OBJECT(.\main.obj)
+
+line level    source
+
+   1          #include <all.h>
+   2          
+   3          /**
+   4           * 数据分配
+   5           */
+   6          void HC595_Allot()
+   7          {
+   8   1          static u8 count = 0;
+   9   1          /*
+  10   1           * 计数控制。
+  11   1           * 抽离出main方法中可以单独控制，
+  12   1           * 避免main方法中编写一堆if判断方法
+  13   1           * */
+  14   1          if (count++ > 250) 
+  15   1          {
+  16   2              count = 0;
+  17   2              HC595_Wirte_Buffer[1] = 0xf0;
+  18   2              HC595_Init();
+  19   2          }
+  20   1      }
+  21          
+  22          void main(void)
+  23          {
+  24   1          // HC595_Wirte_Buffer[1] = 0xf0;
+  25   1          // HC595_Init();
+  26   1          
+  27   1          while(1) 
+  28   1          {
+  29   2              HC595_Allot();
+  30   2          }
+  31   1      }
+  32          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     25    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      1    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

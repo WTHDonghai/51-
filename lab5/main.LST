@@ -1,0 +1,106 @@
+C51 COMPILER V9.01   MAIN                                                                  08/18/2020 17:32:16 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: S:\Keil\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /**
+   2           * 外部中断实验
+   3           * 通过k3触发外部中断0，开关led灯
+   4           */
+   5          
+   6          #include <reg52.h>
+   7          
+   8          typedef unsigned int u16;
+   9          typedef unsigned char u8;
+  10          
+  11          // 设置数码管编码
+  12          u8 code smgduan[16] = {
+  13              0x3F/*0*/,0x06/*1*/,0x5B/*2*/,0x4F/*3*/,
+  14              0x66/*4*/,0x6D/*5*/,0x7D/*6*/,0x07/*7*/,
+  15              0x7F/*8*/,0x6F/*9*/,0x77/*A*/,0x7C/*B*/,
+  16              0x39/*C*/,0x5E/*D*/,0x79/*E*/,0x71/*F*/
+  17          };
+  18          
+  19          u8 smgduan_len = sizeof(smgduan) / sizeof(smgduan[0]);
+  20          
+  21          sbit led = P2^0;
+  22          
+  23          // P3.2管脚连接独立按键k3,触发外部中断INT0
+  24          sbit key3 = P3^2;
+  25          
+  26          void init_interrupt(void);
+  27          void display_digital(u8,u8);
+  28          void delay(u16);
+  29          
+  30          void main(void)
+  31          {
+  32   1          u8 num_idx = 0;
+  33   1      
+  34   1          init_interrupt();
+  35   1          while(1)
+  36   1          {
+  37   2              delay(10000);
+  38   2              if(num_idx++ > smgduan_len - 1) num_idx = 0;
+  39   2              display_digital(0,num_idx);
+  40   2          }
+  41   1      }
+  42          
+  43          /**
+  44           * 外部中断设置初始化
+  45           **/
+  46          void init_interrupt(void)
+  47          {
+  48   1          // 设置cpu中断允许寄存器开放中断使能
+  49   1          EX0 = 1; // 打开INTO的中断允许
+  50   1      
+  51   1          EA = 1; // 打开中断总开关
+  52   1      
+  53   1          IT0 = 1; // 设置跳变沿触发方式
+  54   1      }
+  55          
+C51 COMPILER V9.01   MAIN                                                                  08/18/2020 17:32:16 PAGE 2   
+
+  56          void Key3_Int0() interrupt 0
+  57          {
+  58   1          delay(1000);
+  59   1          led = ~led;
+  60   1          delay(10000);
+  61   1      }
+  62          
+  63          /**
+  64           * 显示指定单个数码管
+  65           * 参数: 
+  66           *  n指定点亮第几个数码管,从0开始计数
+  67           *  num指定显示数字，从0开始计数
+  68           */
+  69          void display_digital(u8 n,u8 num)
+  70          {
+  71   1          u8 idx = 0xff - (n * 4);
+  72   1          P2 &= idx;
+  73   1          P0 = smgduan[num];
+  74   1      }
+  75          
+  76          void delay(u16 us)
+  77          {
+  78   1          while(us--);
+  79   1      }
+  80          
+  81          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    148    ----
+   CONSTANT SIZE    =     16    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      1       1
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

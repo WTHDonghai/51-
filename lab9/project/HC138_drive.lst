@@ -1,0 +1,46 @@
+C51 COMPILER V9.01   HC138_DRIVE                                                           09/04/2020 17:31:57 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE HC138_DRIVE
+OBJECT MODULE PLACED IN .\HC138_drive.obj
+COMPILER INVOKED BY: S:\Keil\C51\BIN\C51.EXE ..\c_and_h\HC138_drive.c BROWSE INCDIR(..\c_and_h) DEBUG OBJECTEXTEND PRINT
+                    -(.\HC138_drive.lst) OBJECT(.\HC138_drive.obj)
+
+line level    source
+
+   1          #include <all.h>
+   2          
+   3          sbit LCA = P2^2;
+   4          sbit LCB = P2^3;
+   5          sbit LCC = P2^4;
+   6          
+   7          /**
+   8           * 功能说明:
+   9           *      根据传入片选值控制片选信号Y0 ~ Y7电平
+  10           * 参数:
+  11           *      idx: 片选值 
+  12           */
+  13          
+  14          void chip_select(u8 idx)
+  15          {
+  16   1          //P2 = 11 101 111 Y5送入低电平
+  17   1          LCA = idx & 0x1;
+  18   1          LCB = _cror_(idx,1) & 0x1;
+  19   1          LCC = _cror_(idx,2) & 0x1;
+  20   1      }
+  21          
+  22          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     33    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

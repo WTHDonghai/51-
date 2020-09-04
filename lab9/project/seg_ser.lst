@@ -1,0 +1,65 @@
+C51 COMPILER V9.01   SEG_SER                                                               09/04/2020 17:31:57 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE SEG_SER
+OBJECT MODULE PLACED IN .\seg_ser.obj
+COMPILER INVOKED BY: S:\Keil\C51\BIN\C51.EXE ..\c_and_h\seg_ser.c BROWSE INCDIR(..\c_and_h) DEBUG OBJECTEXTEND PRINT(.\s
+                    -eg_ser.lst) OBJECT(.\seg_ser.obj)
+
+line level    source
+
+   1          #include <all.h>
+   2          
+   3          // 数码管数据,用以显示,数组的下标表示数码管的位选
+   4          u8 seg_data_buffer[8]; 
+   5          u8 chip_idx = 0; // 位选个数
+   6          
+   7          /**
+   8           * 功能说明:
+   9           *      初始化10进制数据
+  10           * 参数:
+  11           *      num: 填充的10进制数
+  12           */
+  13          void init_dec_data(u8 num)
+  14          {
+  15   1          chip_idx = 0;
+  16   1          while(num)
+  17   1          {
+  18   2              u8 tmp = num % 10;
+  19   2              num /= 10;
+  20   2              seg_data_buffer[chip_idx++] = tmp;
+  21   2          }
+  22   1      }
+  23          
+  24          /*
+  25           * 功能说明:
+  26           *      led数码管显示数字
+  27           * 参数:
+  28           *      idx: 点亮数码管序列号
+  29           *      num: 点亮的数字
+  30           **/
+  31          void seg_dispaly()
+  32          {
+  33   1          u8 i = 0;
+  34   1          for(;i < chip_idx;i++)
+  35   1          {
+  36   2              P0=0x00;
+  37   2              chip_select(i); // 位选(片选)
+  38   2              segment_select(seg_data_buffer[i]); // 段选
+  39   2          }
+  40   1      }
+  41          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     65    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      9       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

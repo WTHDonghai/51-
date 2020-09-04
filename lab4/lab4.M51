@@ -1,0 +1,166 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        08/17/2020  16:10:20  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+S:\KEIL\C51\BIN\BL51.EXE main.obj TO lab4 RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  main.obj (MAIN)
+  S:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  S:\KEIL\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  lab4 (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0005H     UNIT         ?DT?MAIN
+            DATA    000DH     0001H     UNIT         _DATA_GROUP_
+            IDATA   000EH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     008CH     UNIT         ?C_C51STARTUP
+            CODE    088CH     0070H     UNIT         ?PR?KEY_DOWN?MAIN
+            CODE    08FCH     0014H     UNIT         ?PR?_DISPLAY_DIGITAL?MAIN
+            CODE    0910H     0010H     UNIT         ?CO?MAIN
+            CODE    0920H     000DH     UNIT         ?PR?MAIN?MAIN
+            CODE    092DH     000BH     UNIT         ?PR?_DELAY?MAIN
+            CODE    0938H     0004H     UNIT         ?C_INITSEG
+
+
+
+OVERLAY MAP OF MODULE:   lab4 (MAIN)
+
+
+SEGMENT                             DATA_GROUP 
+  +--> CALLED SEGMENT             START    LENGTH
+-------------------------------------------------
+?C_C51STARTUP                     -----    -----
+  +--> ?PR?MAIN?MAIN
+  +--> ?C_INITSEG
+
+?PR?MAIN?MAIN                     -----    -----
+  +--> ?PR?KEY_DOWN?MAIN
+  +--> ?CO?MAIN
+
+?PR?KEY_DOWN?MAIN                 000DH    0001H
+  +--> ?PR?_DELAY?MAIN
+
+
+
+SYMBOL TABLE OF MODULE:  lab4 (MAIN)
+BL51 BANKED LINKER/LOCATER V6.22                                                      08/17/2020  16:10:20  PAGE 2
+
+
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  D:00A8H         PUBLIC        IE
+  C:092DH         PUBLIC        _delay
+  D:0008H         PUBLIC        smgduan_len
+  D:00B8H         PUBLIC        IP
+  C:0920H         PUBLIC        main
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  C:08FCH         PUBLIC        _display_digital
+  D:0009H         PUBLIC        KEY_VALUE
+  D:000AH         PUBLIC        led_idx
+  D:000BH         PUBLIC        f
+  C:088CH         PUBLIC        key_down
+  D:00C8H         PUBLIC        T2CON
+  D:000CH         PUBLIC        led_num
+  C:0910H         PUBLIC        smgduan
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          MAIN
+  C:0920H         LINE#         28
+  C:0920H         LINE#         29
+  C:0920H         LINE#         31
+  C:0920H         LINE#         32
+  C:0920H         LINE#         33
+  C:0923H         LINE#         34
+  C:092BH         LINE#         35
+  -------         ENDPROC       MAIN
+  -------         PROC          _DISPLAY_DIGITAL
+  D:0007H         SYMBOL        n
+  D:0005H         SYMBOL        num
+  -------         DO            
+  D:0007H         SYMBOL        idx
+  -------         ENDDO         
+  C:08FCH         LINE#         45
+  C:08FCH         LINE#         46
+  C:08FCH         LINE#         47
+  C:0906H         LINE#         48
+  C:0908H         LINE#         49
+  C:090FH         LINE#         50
+  -------         ENDPROC       _DISPLAY_DIGITAL
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        us
+  C:092DH         LINE#         55
+  C:092DH         LINE#         56
+  C:092DH         LINE#         57
+  C:0937H         LINE#         58
+  -------         ENDPROC       _DELAY
+  -------         PROC          KEY_DOWN
+  -------         DO            
+BL51 BANKED LINKER/LOCATER V6.22                                                      08/17/2020  16:10:20  PAGE 3
+
+
+  D:000DH         SYMBOL        a
+  -------         ENDDO         
+  C:088CH         LINE#         61
+  C:088CH         LINE#         62
+  C:088CH         LINE#         63
+  C:088FH         LINE#         64
+  C:0892H         LINE#         66
+  C:0898H         LINE#         67
+  C:0898H         LINE#         68
+  C:089FH         LINE#         69
+  C:08A5H         LINE#         70
+  C:08A5H         LINE#         73
+  C:08A8H         LINE#         74
+  C:08BAH         LINE#         75
+  C:08BAH         LINE#         76
+  C:08BFH         LINE#         77
+  C:08C4H         LINE#         78
+  C:08C9H         LINE#         79
+  C:08CCH         LINE#         80
+  C:08CCH         LINE#         83
+  C:08CFH         LINE#         84
+  C:08E2H         LINE#         85
+  C:08E2H         LINE#         86
+  C:08E7H         LINE#         87
+  C:08EBH         LINE#         88
+  C:08EFH         LINE#         89
+  C:08F5H         LINE#         90
+  C:08F5H         LINE#         91
+  C:08F5H         LINE#         92
+  C:08F5H         LINE#         94
+  -------         ENDPROC       KEY_DOWN
+  -------         ENDMOD        MAIN
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DISPLAY_DIGITAL?MAIN
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 00AFH BYTE ( 8%) *
+******************************************************************************
+
+Program Size: data=15.0 xdata=0 code=319
+LINK/LOCATE RUN COMPLETE.  1 WARNING(S),  0 ERROR(S)

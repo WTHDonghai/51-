@@ -1,0 +1,144 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+F:\pro51\lab5\lab5.uvproj
+Project File Date:  08/18/2020
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(34): warning C206: 'display_digital': missing function-prototype
+MAIN.C(34): error C267: 'display_digital': requires ANSI-style prototype
+MAIN.C(45): error C141: syntax error near 'sbit'
+MAIN.C(46): error C141: syntax error near 'sbit'
+MAIN.C(51): error C141: syntax error near 'sbit'
+MAIN.C(55): error C141: syntax error near '0'
+MAIN.C(57): error C129: missing ';' before '~'
+Target not created
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(45): error C141: syntax error near 'sbit'
+MAIN.C(46): error C141: syntax error near 'sbit'
+MAIN.C(51): error C141: syntax error near 'sbit'
+MAIN.C(55): error C141: syntax error near '0'
+MAIN.C(57): error C129: missing ';' before '~'
+Target not created
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(52): error C141: syntax error near '0'
+MAIN.C(54): error C141: syntax error near '1000'
+MAIN.C(55): error C129: missing ';' before '~'
+Target not created
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(52): error C141: syntax error near '0'
+MAIN.C(54): error C141: syntax error near '1000'
+MAIN.C(55): error C231: 'led0': redefinition
+MAIN.C(55): error C247: non-address/-constant initializer
+MAIN.C(55): error C231: 'led0': redefinition
+MAIN.C(56): error C141: syntax error near '1000'
+MAIN.C(57): error C141: syntax error near '}'
+MAIN.C(73): error C231: 'delay': redefinition
+MAIN.C(75): error C231: 'delay': redefinition
+Target not created
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(52): error C141: syntax error near '0'
+MAIN.C(54): error C141: syntax error near '1000'
+MAIN.C(55): error C231: 'led0': redefinition
+MAIN.C(55): error C247: non-address/-constant initializer
+MAIN.C(55): error C231: 'led0': redefinition
+MAIN.C(56): error C141: syntax error near '1000'
+MAIN.C(57): error C141: syntax error near '}'
+MAIN.C(73): error C231: 'delay': redefinition
+MAIN.C(75): error C231: 'delay': redefinition
+Target not created
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(54): warning C206: 'delay': missing function-prototype
+MAIN.C(54): error C267: 'delay': requires ANSI-style prototype
+MAIN.C(73): error C231: 'delay': redefinition
+MAIN.C(75): error C231: 'delay': redefinition
+Target not created
+Build target 'Target 1'
+compiling main.c...
+linking...
+Program Size: data=19.0 xdata=0 code=272
+"lab5" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: data=19.0 xdata=0 code=272
+creating hex file from "lab5"...
+"lab5" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?INIT_INTERRUPT?MAIN
+Program Size: data=19.0 xdata=0 code=272
+creating hex file from "lab5"...
+"lab5" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?INIT_INTERRUPT?MAIN
+Program Size: data=19.0 xdata=0 code=272
+creating hex file from "lab5"...
+"lab5" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?INIT_INTERRUPT?MAIN
+Program Size: data=19.0 xdata=0 code=279
+creating hex file from "lab5"...
+"lab5" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+Program Size: data=11.0 xdata=0 code=317
+creating hex file from "lab5"...
+"lab5" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+Program Size: data=11.0 xdata=0 code=317
+creating hex file from "lab5"...
+"lab5" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+Program Size: data=11.0 xdata=0 code=317
+creating hex file from "lab5"...
+"lab5" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+Program Size: data=11.0 xdata=0 code=314
+creating hex file from "lab5"...
+"lab5" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+Program Size: data=11.0 xdata=0 code=314
+creating hex file from "lab5"...
+"lab5" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+Program Size: data=11.0 xdata=0 code=314
+creating hex file from "lab5"...
+"lab5" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: data=11.0 xdata=0 code=314
+creating hex file from "lab5"...
+"lab5" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+Program Size: data=11.0 xdata=0 code=314
+creating hex file from "lab5"...
+"lab5" - 0 Error(s), 0 Warning(s).
